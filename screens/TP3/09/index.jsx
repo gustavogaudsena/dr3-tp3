@@ -16,8 +16,8 @@ export default function TP3_09() {
         setProdutosFiltrados(items);
     }
 
-    const ordernar = () => {
-        const itemsOrdenados = produtosFiltrados.sort((a, b) => orderBy === 'asc' ? b.nome.localeCompare(a.nome) : a.nome.localeCompare(b.nome))
+    const ordernar = (order) => {
+        const itemsOrdenados = produtosFiltrados.sort((a, b) => order === 'asc' ? b.nome.localeCompare(a.nome) : a.nome.localeCompare(b.nome))
         setProdutosFiltrados(itemsOrdenados)
     }
 
@@ -47,7 +47,12 @@ export default function TP3_09() {
             </View>
             <Picker
                 selectedValue={orderBy}
-                onValueChange={(value) => setOrderBy(value)}
+                onValueChange={(value) => {
+                    setOrderBy((prev) => {
+                        ordernar(value)
+                        return value
+                    })
+                }}
                 style={styles.picker}
             >
                 <Picker.Item label="Ordenar por Nome de forma crescente" value="asc" />
