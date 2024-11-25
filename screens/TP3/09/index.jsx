@@ -17,7 +17,7 @@ export default function TP3_09() {
     }
 
     const ordernar = (order) => {
-        const itemsOrdenados = produtosFiltrados.sort((a, b) => order === 'asc' ? b.nome.localeCompare(a.nome) : a.nome.localeCompare(b.nome))
+        const itemsOrdenados = produtosFiltrados.sort((a, b) => order === 'asc' ? a.nome.localeCompare(b.nome) : b.nome.localeCompare(a.nome))
         setProdutosFiltrados(itemsOrdenados)
     }
 

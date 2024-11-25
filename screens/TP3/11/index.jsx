@@ -19,8 +19,8 @@ export default function TP3_11() {
 
     const ordernar = (order) => {
         const itemsOrdenados = produtosFiltrados.sort((a, b) => {
-            if (order === 'nomeAsc') return b.nome.localeCompare(a.nome)
-            if (order === 'nomeDesc') return a.nome.localeCompare(b.nome)
+            if (order === 'nomeAsc') return a.nome.localeCompare(b.nome)
+            if (order === 'nomeDesc') return b.nome.localeCompare(a.nome)
             if (order === 'precoAsc') return Number(a.preco) - Number(b.preco)
             if (order === 'precoDesc') return Number(b.preco) - Number(a.preco)
         })
